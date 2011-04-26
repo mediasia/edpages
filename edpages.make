@@ -45,9 +45,9 @@ projects[token][subdir] = "contrib"
 
 
 ; themes
-projects[zen]
-projects[rubik]
-project[tao]
+projects[] = zen
+projects[] = rubik
+projects[] = tao
 
 projects[mao][type] = theme
 projects[mao][download][type] = "git"
