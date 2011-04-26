@@ -49,9 +49,9 @@ projects[zen]
 projects[rubik]
 project[tao]
 
-project[mao][type] = theme
-project[mao][download][type] = "git"
-project[mao][download][url] = "git://github.com/mediasia/mao.git"
+projects[mao][type] = theme
+projects[mao][download][type] = "git"
+projects[mao][download][url] = "git://github.com/mediasia/mao.git"
 
 ; features
 
