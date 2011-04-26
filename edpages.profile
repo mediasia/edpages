@@ -8,7 +8,7 @@
 * @return
 *   An array with keys 'name' and 'description' describing this profile.
 */
-function bamboo_profile_details() {
+function edpages_profile_details() {
   return array(
     'name' => 'Ed pages profile',
     'description' => 'This profile will install ed pages distrib',
@@ -22,7 +22,7 @@ function bamboo_profile_details() {
 * @return
 *  An array of modules to be enabled.
 */
-function bamboo_profile_modules() {
+function edpages_profile_modules() {
   return array(
     // Enable core modules first.
     'block', 'filter', 'node', 'system', 'user', 'path', 'menu', 'php', 'taxonomy',
@@ -69,9 +69,9 @@ function bamboo_profile_modules() {
 /**
  * Implementation of hook_profile_task_list().
  */
-function bamboo_profile_task_list() {
+function edpages_profile_task_list() {
   return array(
-    'bamboo-configure' => st('Bamboo pages configuration'),
+    'edpages-configure' => st('Edpages pages configuration'),
   );
 }
 
@@ -79,7 +79,7 @@ function bamboo_profile_task_list() {
 /**
  * Implementation of hook_profile_tasks().
  */
-function bamboo_profile_tasks(&$task, $url) {
+function edpages_profile_tasks(&$task, $url) {
   global $install_locale;
 
   // Clear caches.
@@ -88,7 +88,7 @@ function bamboo_profile_tasks(&$task, $url) {
   // Enable the right theme. This must be handled after drupal_flush_all_caches()
   // which rebuilds the system table based on a stale static cache,
   // blowing away our changes.
-  _bamboo_system_theme_data();
+  _edpages_system_theme_data();
   
   // Reset theme configuration
   db_query("UPDATE {system} SET status = 0 WHERE type = 'theme'");
@@ -120,17 +120,17 @@ function bamboo_profile_tasks(&$task, $url) {
  * Advance installer task to language import.
  */
 
-function _bamboo_profile_batch_finished ($success, $results) {
-  variable_set('install_task', 'bamboo-configure');
+function _edpages_profile_batch_finished ($success, $results) {
+  variable_set('install_task', 'edpages-configure');
 }
 
-function bamboo_form_alter(&$form, $form_state, $form_id) {
+function edpages_form_alter(&$form, $form_state, $form_id) {
   if ($form_id == 'install_configure') {
-    $form['site_information']['site_name']['#default_value'] = 'Bamboo site';   // Site name
+    $form['site_information']['site_name']['#default_value'] = 'Edpages site';   // Site name
     $form['site_information']['site_mail']['#default_value'] = 'admin@'. $_SERVER['HTTP_HOST'];  // Site email address
     $form['admin_account']['account']['name']['#default_value'] = 'admin';  // Site admin username
     $form['admin_account']['account']['mail']['#default_value'] = 'spacedoud@gmail.com'; // Site admin email address
-    $form['admin_account']['account']['pass']['#post_render'] = array('_bamboo_set_pass'); // Site admin email address
+    $form['admin_account']['account']['pass']['#post_render'] = array('_edpages_set_pass'); // Site admin email address
     $form['server_settings']['update_status_module']['#default_value'] = array(0 => 0); // Site admin email address
   }
 }
@@ -138,7 +138,7 @@ function bamboo_form_alter(&$form, $form_state, $form_id) {
 /**
  * Returns admin pass to be stored by default in the setting page administration
  */
-function _bamboo_set_pass (&$form) {
+function _edpages_set_pass (&$form) {
   return str_replace('type="password"', 'type="password" value="abcd1243"', $form);
 }
 
@@ -149,9 +149,9 @@ function _bamboo_set_pass (&$form) {
  * is populated during install prior to active install profile awareness.
  * This workaround makes enabling themes in profiles/managingnews/themes possible.
  */
-function _bamboo_system_theme_data() {
+function _edpages_system_theme_data() {
   global $profile;
-  $profile = 'bamboo';
+  $profile = 'edpages';
 
   $themes = drupal_system_listing('\.info$', 'themes');
   $engines = drupal_system_listing('\.engine$', 'themes/engines');
