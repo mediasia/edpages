@@ -46,6 +46,12 @@ projects[token][subdir] = "contrib"
 
 ; themes
 projects[zen]
+projects[rubik]
+project[tao]
+
+project[mao][type] = theme
+project[mao][download][type] = "git"
+project[mao][download][url] = "git://github.com/mediasia/mao.git"
 
 ; features
 
