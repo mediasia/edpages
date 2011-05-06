@@ -40,7 +40,7 @@ projects[wysiwyg][subdir] = "contrib"
 projects[custom_breadcrumbs][subdir] = "contrib"
 projects[image_fupload][subdir] = "contrib"
 projects[token][subdir] = "contrib"
-;projects[librairies][subdir] = "contrib"
+projects[libraries][subdir] = "contrib"
 ;projects[total_control][subdir] = "contrib"
 
 
