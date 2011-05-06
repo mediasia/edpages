@@ -80,6 +80,6 @@ projects[wysiwyg_config][download][url] = "git://github.com/mediasia/wysiwyg_con
 libraries[ckeditor][download][type] = "get"
 libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.5.3/ckeditor_3.5.3.zip"
 libraries[ckeditor][directory_name] = "ckeditor"
-libraries[ckeditor][destination] = "profiles/edpages/libraries/"
+libraries[ckeditor][destination] = "libraries/"
 
 
