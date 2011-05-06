@@ -75,5 +75,11 @@ projects[wysiwyg_config][type] = module
 projects[wysiwyg_config][download][type] = "git"
 projects[wysiwyg_config][download][url] = "git://github.com/mediasia/wysiwyg_config.git"
 
+;librairies
+
+libraries[ckeditor][download][type] = "get"
+libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.5.3/ckeditor_3.5.3.zip"
+libraries[ckeditor][directory_name] = "ckeditor"
+libraries[ckeditor][destination] = "profiles/edpages/libraries/"
 
 
